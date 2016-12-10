@@ -10,7 +10,7 @@ export class SearchService {
     return Observable.of(array.filter((item: any) => {
       for (let key of Object.keys(term)) {
         if (item.hasOwnProperty(key)) {
-          if (item[key].includes(term[key])) {
+          if (item[key].toLowerCase().includes(term[key].toLowerCase())) {
             return true;
           }
         }
