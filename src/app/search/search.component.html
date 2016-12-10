@@ -1,5 +1,14 @@
- <input
-  class=""
-  id="search_input"
-  type="text"
->
+<div class="input-group">
+  <input
+    class="form-control"
+    id="search_input"
+    type="text"
+    [placeholder]="placeholder"
+    [formControl]="searchValue"
+    [attr.placeholder]="placeholder"
+    #string_input
+  >
+  <span class="input-group-addon search_cancel" (click)="resetInput()">
+    <span class="glyphicon glyphicon-remove">x</span>
+  </span>
+</div>

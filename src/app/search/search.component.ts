@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
+import { FormControl } from "@angular/forms";
 
 import { SearchService } from './search.service';
 
@@ -8,8 +9,30 @@ import { SearchService } from './search.service';
   styleUrls: ['./search.component.sass'],
   providers: [ SearchService ]
 })
-export class SearchComponent {
+export class SearchComponent implements AfterContentInit {
 
-  constructor() { }
+  private searchValue = new FormControl();
 
+  @Input() placeholder: string;
+  @Input() debounceTime: number = 0;
+
+  @Output() searchReset: EventEmitter<any> = new EventEmitter<any>();
+  @Output() searchValueChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  @ViewChild('string_input') string_input;
+
+  constructor () { }
+
+  ngAfterContentInit() {
+    this.searchValue
+        .valueChanges
+        .debounceTime(this.debounceTime)
+        .distinctUntilChanged()
+        .subscribe(value => this.searchValueChanged.emit(value));
+  }
+
+  resetInput() {
+      this.searchReset.emit(null);
+      this.string_input.nativeElement.value = '';
+  }
 }
