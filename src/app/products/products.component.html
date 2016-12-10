@@ -1,1 +1,13 @@
 <h2>Products</h2>
+<div class="row row_header">
+  <div class="col-md-6">Title</div>
+  <div class="col-md-2">ID</div>
+  <div class="col-md-2">Publication Date</div>
+  <div class="col-md-2">Language Code</div>
+</div>
+<div class="row" *ngFor="let product of products">
+  <div class="col-md-6">{{product.title}}</div>
+  <div class="col-md-2">{{product.id}}</div>
+  <div class="col-md-2">{{product.publicationDate}}</div>
+  <div class="col-md-2">{{product.languageCode}}</div>
+</div>

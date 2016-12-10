@@ -11,7 +11,14 @@ import { Product } from './product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = [];
+
+  constructor(protected productsService: ProductsService) {
+    this.productsService.getProducts()
+      .subscribe(result => {
+          this.products = result;
+      });
+  }
 
   ngOnInit() {
   }
