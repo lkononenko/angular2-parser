@@ -12,7 +12,7 @@ export class ProductsService {
   constructor(private http: Http) { }
 
   getProducts() {
-    return this.http.get('/app/data/products.json')
+    return this.http.get(window.location.href + '/assets/products.json')
       .map(responseData => {
         return responseData.json().worksById;
       })
@@ -20,14 +20,15 @@ export class ProductsService {
         this.parseProducts(data);
         return this.products;
       });
-    
   }
 
   private parseProducts(data: any[]) {
       for (let key in data) {
-        let product = data[key];
-        product.id = key;
-        this.products.push(new Product(product));
+        if (data.hasOwnProperty(key)) {
+          let product = data[key];
+          product.id = key;
+          this.products.push(new Product(product));
+        }
       }
   }
 }

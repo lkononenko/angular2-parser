@@ -1,17 +1,17 @@
 import { Component, AfterContentInit, Input, EventEmitter, Output, ViewChild } from '@angular/core';
-import { FormControl } from "@angular/forms";
+import { FormControl } from '@angular/forms';
 
 import { SearchService } from './search.service';
 
 @Component({
-  selector: 'search',
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
   providers: [ SearchService ]
 })
 export class SearchComponent implements AfterContentInit {
 
-  private searchValue = new FormControl();
+  searchValue = new FormControl();
 
   @Input() placeholder: string;
   @Input() debounceTime: number = 0;

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'angular2-parser',
+  selector: 'app-angular2-parser',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

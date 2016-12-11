@@ -5,7 +5,7 @@ import { SearchService } from '../search/search.service';
 import { Product } from './product.model';
 
 @Component({
-  selector: 'products',
+  selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
   providers: [ ProductsService, SearchService ]
@@ -16,8 +16,7 @@ export class ProductsComponent implements OnInit {
   filteredProducts: Product[] = [];
 
   constructor(protected productsService: ProductsService,
-              private searchService: SearchService)
-  {
+              private searchService: SearchService) {
     this.productsService.getProducts()
       .subscribe(result => {
           this.products = result;
@@ -28,12 +27,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
-  private filterProducts(searchValue) {
+  filterProducts(searchValue) {
     this.searchService.localSearch(this.products, { title: searchValue })
       .subscribe(result => this.filteredProducts = result);
   }
 
-  private resetSearch() {
+  resetSearch() {
     this.filteredProducts = this.products;
   }
 }
