@@ -6,7 +6,7 @@ import { SearchService } from './search.service';
 @Component({
   selector: 'search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.sass'],
+  styleUrls: ['./search.component.scss'],
   providers: [ SearchService ]
 })
 export class SearchComponent implements AfterContentInit {

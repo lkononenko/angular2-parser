@@ -18,8 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.sass",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
@@ -46,7 +46,7 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,

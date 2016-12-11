@@ -1,0 +1,26 @@
+@import "../app.variables.scss";
+
+.search_area {
+  background-color: $color_bg;
+  padding: 3rem 0;
+}
+.row {
+  margin: 0;
+  padding: 0.5em 0;
+}
+.row_header {
+  color: $color_brand;
+  background-color: $color_bg;
+}
+.row [class^="col-"]{
+  padding: 0 0.5rem;
+}
+
+@media (max-width: 770px) {
+  .row_header {
+    display: none;
+  }
+  .row [class^="col-"]{
+    padding: 0;
+  }
+}

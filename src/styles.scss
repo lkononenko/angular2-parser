@@ -1,0 +1,49 @@
+@import "app/app.variables.scss";
+
+html,
+body {
+  font-family: Helvetica Neue, Helvetica, Sans-Serif;
+  color: #505050;
+  padding: 0;
+  margin: 0;
+}
+header,
+footer,
+.content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+h1,
+h2 {
+  color: $color_brand;
+}
+h3 {
+  color: $color_link;
+}
+
+a,
+a:visited,
+.color_link {
+    color: $color_link;
+}
+
+@media (max-width: 499px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (min-width: 500px) and (max-width: 999px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1999px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 2000px) {
+  html {
+    font-size: 18px;
+  }
+}

@@ -7,7 +7,7 @@ import { Product } from './product.model';
 @Component({
   selector: 'products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.sass'],
+  styleUrls: ['./products.component.scss'],
   providers: [ ProductsService, SearchService ]
 })
 export class ProductsComponent implements OnInit {

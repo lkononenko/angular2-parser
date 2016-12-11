@@ -1,19 +1,28 @@
-<h3>Search Products by Title</h3>
-<search placeholder="Enter a product's title"
-        (searchValueChanged)="filterProducts($event)"
-        (searchReset)="resetSearch()">
-</search>
-<h2>Products</h2>
-<p>Amount: {{filteredProducts.length}}</p>
-<div class="row row_header" *ngIf="filteredProducts.length > 0">
-  <div class="col-md-6">Title</div>
-  <div class="col-md-2">ID</div>
-  <div class="col-md-2">Publication Date</div>
-  <div class="col-md-2">Language Code</div>
+<div class="search_area">
+  <div class="container">
+    <h3>Search Products by Title</h3>
+    <search placeholder="Enter a product's title"
+            (searchValueChanged)="filterProducts($event)"
+            (searchReset)="resetSearch()">
+    </search>
+  </div>
 </div>
-<div class="row" *ngFor="let product of filteredProducts">
-  <div class="col-md-6">{{product.title}}</div>
-  <div class="col-md-2">{{product.id}}</div>
-  <div class="col-md-2">{{product.publicationDate}}</div>
-  <div class="col-md-2">{{product.languageCode}}</div>
+<div class="container content">
+  <h3>Products</h3>
+  <div *ngIf="filteredProducts.length > 0">
+    <p>Amount: {{filteredProducts.length}}</p>
+    <div class="row row_header">
+      <div class="col-md-6">Title</div>
+      <div class="col-md-2">ID</div>
+      <div class="col-md-2">Publication Date</div>
+      <div class="col-md-2">Language Code</div>
+    </div>
+    <div class="row" *ngFor="let product of filteredProducts">
+      <div class="col-md-6 color_link">{{product.title}}</div>
+      <div class="col-md-2">{{product.id}}</div>
+      <div class="col-md-2">{{product.publicationDate}}</div>
+      <div class="col-md-2">{{product.languageCode}}</div>
+    </div>
+  </div>
+  <div *ngIf="filteredProducts.length == 0">There are no products that match your search.</div>
 </div>
